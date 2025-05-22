@@ -82,7 +82,7 @@ def invoke_with_prompt(raw_config:str,snapClass:str,env:dict):
         yaml.dump(config, file, sort_keys=False)
         file.flush()
     # # now invoke the command
-    command = f'/workspaces/cert-csi-ux/app/cert-csi certify --cert-config {output_path} --vsc {snapClass}' #TODO update path    
+    command = f'/app/cert-csi certify --cert-config {output_path} --vsc {snapClass}' #TODO update path    
     cmd = command.split(' ')
 
     # Prepare environment
