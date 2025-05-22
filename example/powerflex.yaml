@@ -1,0 +1,36 @@
+storageClasses:
+  - name: vxflexos
+    minSize: 8Gi
+    rawBlock: true
+    expansion: true
+    clone: true
+    snapshot: true
+    RWX: false
+    volumeHealth: true
+    ephemeral:
+      driver: csi-vxflexos.dellemc.com
+      fstype: ext4
+      volumeAttributes:
+        volumeName: "my-ephemeral-vol"
+        size: "8Gi"
+        storagepool: "sample"
+        systemID: "sample"
+  - name: vxflexos-nfs
+    minSize: 8Gi
+    rawBlock: false
+    expansion: true
+    clone: true
+    snapshot: true
+    RWX: true
+    RWOP: false
+    ephemeral:
+      driver: csi-vxflexos.dellemc.com
+      fstype: "nfs"
+      volumeAttributes:
+        volumeName: "my-ephemeral-vol"
+        size: "8Gi"
+        storagepool: "sample"
+        systemID: "sample"
+    capacityTracking:
+      driverNamespace: vxflexos
+      pollInterval: 2m
