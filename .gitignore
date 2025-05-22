@@ -1,0 +1,9 @@
+node_modules
+dist
+dump
+__pycache__
+*.db
+*.log
+kubeconfig
+output.yaml
+cert-csi
